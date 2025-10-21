@@ -1,4 +1,3 @@
-// eslint-disable-next-line vue/multi-word-component-names
 <template>
   <div class="home">
     <SearchBar v-model="searchTerm" />
