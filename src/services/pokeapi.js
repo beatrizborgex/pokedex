@@ -1,9 +1,21 @@
-export async function getPokemons(limit = 30) {
+export async function getPokemons(limit = 50) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
   const data = await res.json()
 
-  return data.results.map((p, index) => ({
-    name: p.name,
-    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`
-  }))
+  const pokemons = await Promise.all(
+    data.results.map(async (p) => {
+      const details = await fetch(p.url).then((res) => res.json())
+
+      const image =
+        details.sprites?.other?.['official-artwork']?.front_default ||
+        details.sprites?.front_default
+
+      return {
+        name: details.name,
+        image
+      }
+    })
+  )
+
+  return pokemons
 }

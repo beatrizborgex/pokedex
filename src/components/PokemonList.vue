@@ -13,6 +13,7 @@ import { ref, computed, onMounted } from 'vue'
 import PokemonCard from './PokemonCard.vue'
 import { getPokemons } from '../services/pokeapi.js'
 
+
 const pokemons = ref([])
 const props = defineProps(['searchTerm'])
 
@@ -30,7 +31,7 @@ const filteredPokemons = computed(() =>
 <style>
 .pokemon-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   gap: 1rem;
 }

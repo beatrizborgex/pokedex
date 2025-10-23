@@ -21,15 +21,18 @@ defineProps(['pokemon'])
   transition: transform 0.2s;
 }
 .card:hover {
-  background-color: #CC0000;
+  background-color: #b41414;
+  color: white;
 }
 .card img {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
 }
 .card h3 {
-  text-transform: capitalize;
   margin-top: 0.5rem;
   font-size: 1rem;
 }
 </style>
+
+fazer animação de scale do elemento quando fizer o efeito hoover
+svg de fallback
