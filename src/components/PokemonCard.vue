@@ -23,6 +23,7 @@ defineProps(['pokemon'])
 .card:hover {
   background-color: #b41414;
   color: white;
+  transform: scale(1.1)
 }
 .card img {
   width: 70px;
@@ -34,5 +35,5 @@ defineProps(['pokemon'])
 }
 </style>
 
-fazer animação de scale do elemento quando fizer o efeito hoover
+
 svg de fallback
