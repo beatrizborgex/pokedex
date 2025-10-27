@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="flex flex-col items-center gap-6 py-6">
     <SearchBar v-model="searchTerm" />
     <PokemonList :searchTerm="searchTerm" />
   </div>
@@ -12,9 +12,3 @@ import PokemonList from '../components/PokemonList.vue'
 
 const searchTerm = ref('')
 </script>
-
-<style>
-.home {
-  padding: 2rem;
-}
-</style>

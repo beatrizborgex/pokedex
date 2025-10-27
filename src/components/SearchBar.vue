@@ -1,6 +1,6 @@
 <template>
   <input
-    class="search-input"
+    class="border border-black rounded-md px-4 py-2 w-64 text-base mb-6 focus:outline-none focus:ring-2 focus:ring-red-700"
     type="text"
     placeholder="Buscar..."
     :value="modelValue"
@@ -12,17 +12,3 @@
 defineProps(['modelValue'])
 defineEmits(['update:modelValue'])
 </script>
-
-<style>
-.search-input {
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  border: 1px solid #000000;
-  width: 250px;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-.search-input:focus{
-  outline-color: #CC0000;
-}
-</style>

@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
-    <header class="header">
-      <h1>Pokédex</h1>
+  <div id="app" class="min-h-screen bg-gray-100 text-center font-sans">
+    <header class="bg-red-700 text-white p-4 shadow-md">
+      <h1 class="text-3xl font-bold tracking-wide">Pokédex</h1>
     </header>
 
-    <main>
+    <main class="p-6">
       <HomePage />
     </main>
   </div>
@@ -13,23 +13,3 @@
 <script setup>
 import HomePage from './pages/HomePage.vue'
 </script>
-
-<style>
-*{
-  padding:0;
-  border: 0;
-
-}
-#app {
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f8f8;
-  min-height: 100vh;
-}
-
-.header {
-  background-color: #CC0000;
-  color: white;
-  padding: 1rem;
-}
-</style>
