@@ -1,12 +1,22 @@
 <template>
   <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
     <div class="bg-white rounded-xl p-6 w-96 shadow-lg relative">
-      <button @click="$emit('close')" class="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-2xl">×</button>
+      <button
+        @click="$emit('close')"
+        class="absolute top-2 right-3 text-gray-500 hover:text-red-600 text-2xl"
+      >
+        ×
+      </button>
 
       <div v-if="pokemon" class="text-center">
-        <img :src="pokemon.image" :alt="pokemon.name" class="w-32 h-32 mx-auto mb-3" />
+        <img
+          :src="pokemon.image || fallbackImage"
+          :alt="pokemon.name"
+          class="w-32 h-32 mx-auto mb-3 object-contain"
+          @error="handleImageError"
+        />
+
         <h2 class="text-2xl font-bold capitalize mb-2">{{ pokemon.name }}</h2>
-        <p class="text-gray-600">#{{ pokemon.id }}</p>
 
         <div class="mt-3">
           <p><span class="font-semibold">Altura:</span> {{ pokemon.height / 10 }} m</p>
@@ -36,6 +46,11 @@ import { getPokemonDetails } from '../services/pokeapi.js'
 
 const props = defineProps(['pokemonName'])
 const pokemon = ref(null)
+const fallbackImage = '/fallback.png' 
+
+function handleImageError(event) {
+  event.target.src = fallbackImage
+}
 
 onMounted(async () => {
   pokemon.value = await getPokemonDetails(props.pokemonName)

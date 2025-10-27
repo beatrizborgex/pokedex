@@ -2,12 +2,12 @@ export async function getPokemons(limit = 50) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
   const data = await response.json()
 
-  // Mapeia cada Pokémon com imagem
   const pokemons = await Promise.all(
     data.results.map(async (p) => {
       const res = await fetch(p.url)
       const details = await res.json()
       return {
+        id: details.id,
         name: p.name,
         image: details.sprites.other['official-artwork'].front_default
       }
